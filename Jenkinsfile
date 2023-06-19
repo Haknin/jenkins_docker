@@ -38,7 +38,7 @@ pipeline {
             }
         }
 
-        stage('Run the code') {
+        stage('Runnnn the code') {
             steps {
                 sh 'ssh user@instance-ip "cd /path/to/destination && your-command-to-start-the-code"' // replace with your command to start the code
             }

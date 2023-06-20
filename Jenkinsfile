@@ -2,7 +2,10 @@ pipeline {
     agent any
      triggers {
         pollSCM('*/5 * * * *')
-     }
+    }
+    environment {
+        EC2_IP = "18.193.101.103"
+    }
      stages {
         stage('Cleanup') {
             steps {

@@ -36,7 +36,8 @@ pipeline {
             steps {
                 withAWS(region: eu-central-1, credentials: jankeys) {
                     sh 'aws ec2 cp s3://haknin-bucket/crypto.tar.gz /path/to/destination' // copy the zip to instance
-                    sh 'ssh -i /home/hakninn/.aws/ori109.pem / ec2-user@18.193.101.103	 "/s3://haknin-bucket/crypto.tar.gz -d /s3://haknin-bucket/crypto.tar.gz"
+                    sh 'ssh -i /home/hakninn/.aws/ori109.pem ec2-user@18.193.101.103:22 "/s3://haknin-bucket/crypto.tar.gz -r -d /crypto/"'
+
                 }
             }
         }

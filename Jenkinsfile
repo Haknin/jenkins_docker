@@ -31,7 +31,7 @@ pipeline {
 
         stage('Deploy to Instance') {
             steps {
-              //  withAWS(region: eu-central-1, credentials: 'your-aws-credentials')
+                withAWS(region: eu-central-1, credentials: 'your-aws-credentials')
                 {
       
                     sh 'ssh user@instance-ip "unzip /path/to/destination/code.zip -d /path/to/destination"' // unzip the code on the instance

@@ -32,8 +32,8 @@ pipeline {
         stage('Deploy to Instance') {
             steps {
                 withAWS(region: eu-central-1, credentials: jankeys) {
-                    sh 'aws ec2 cp s3://haknin-bucket/crypto.zip /path/to/destination' // copy the zip to instance
-                    sh 'ssh user@instance-ip "unzip /path/to/destination/code.zip -d /s3://haknin-bucket/crypto.tar.gz' // unzip the code on the instance
+                    sh 'aws ec2 cp s3://haknin-bucket/crypto.tar.gz /path/to/destination' // copy the zip to instance
+                    sh 'ssh jenkins@18.193.101.103	 "/s3://haknin-bucket/crypto.tar.gz -d /s3://haknin-bucket/crypto.tar.gz" // unzip the code on the instance
                 }
             }
         }

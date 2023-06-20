@@ -33,12 +33,11 @@ pipeline {
             steps {
                 withAWS(region: 'your-aws-region', credentials: 'your-aws-credentials') {
                     sh 'aws ec2 cp s3://your-s3-bucket/code.zip /path/to/destination' // copy the zip to instance
-                    sh 'ssh user@instance-ip "unzip /path/to/destination/code.zip -d /path/to/destination"' // unzip the code on the instance 
+                    sh 'ssh user@instance-ip "unzip /path/to/destination/code.zip -d /path/to/destination"' // unzip the code on the instance
                 }
             }
         }
-
-        stage('Runnnn the code') {
+        stage('Run the code') {
             steps {
                 sh 'ssh user@instance-ip "cd /path/to/destination && your-command-to-start-the-code"' // replace with your command to start the code
             }

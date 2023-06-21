@@ -54,7 +54,7 @@ pipeline {
     
         stage('Run the code') {
             steps {
-                ssh ec2-user@$EC2_IP "cd /home/ec2-user/crypto && python3 app.py"
+                ssh 'ec2-user@$EC2_IP "cd /home/ec2-user/crypto && python3 app.py"'
             //    sh 'ssh user@instance-ip "cd /path/to/destination && your-command-to-start-the-code"' // replace with your command to start the code
             }
         }

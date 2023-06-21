@@ -14,4 +14,3 @@
       systemd:
         name: flaskapp.service
         enabled: yes
-

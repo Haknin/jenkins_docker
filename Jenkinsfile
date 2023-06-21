@@ -34,7 +34,7 @@ pipeline {
         stage('Deploy to Instance') {
             steps {
                 withAWS(region: eu-central-1, credentials: jankeys) {
-                sh 'aws s3 cp s3://haknin-bucket/crypto.tar.gz /var/lib/jenkins/workspace/crypto.tar.gz' // copy the zip to instance
+             //   sh 'aws s3 cp s3://haknin-bucket/crypto.tar.gz /var/lib/jenkins/workspace/crypto.tar.gz' // copy the zip to instance
             //    sh 'ssh ec2-user@$EC2_IP "cd /home/ec2-user && tar -xvf crypto.tar.gz"' // unzip the file
               //  sh 'ssh ec2-user@$EC2_IP "chmod +x /home/ec2-user/crypto/app.py"' // give the file executable permissions
              //   sh 'ssh ec2-user@$EC2_IP "nohup /home/ec2-user/crypto/app.py &"' // run the app in the background

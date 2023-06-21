@@ -4,7 +4,7 @@ pipeline {
         pollSCM('*/5 * * * *')
     }
     environment {
-        EC2_IP = "18.193.101.103"
+        EC2_IP = "18.197.144.85"
     }
      stages {
         stage('Cleanup') {
@@ -34,9 +34,15 @@ pipeline {
 
         stage('Deploy to Instance') {
             steps {
+                sh 'aws s3 cp s3://roylatin-flask-artifacts/crypto.tar.gz /var/lib/jenkins/workspace/crypto.tar.gz'
+                sshagent(['aws-key-ssh']) {
+                         sh 'scp -i /var/lib/jenkins/key.pem /var/lib/jenkins/workspace/crypto.tar.gz ec2-user@$EC2_IP_TEST:/home/ec2-user'
+                    
                 withAWS(region: eu-central-1, credentials: jankeys) {
-                    sh 'aws ec2 cp s3://haknin-bucket/crypto.tar.gz /path/to/destination' // copy the zip to instance
-                    sh 'ssh -i /home/hakninn/.aws/ori109.pem ec2-user@18.193.101.103:22 "/s3://haknin-bucket/crypto.tar.gz -r -d /crypto/"'
+                    sh 'aws ec2 cp s3://haknin-bucket/crypto.tar.gz /var/lib/jenkins/workspace/crypto.tar.gz' // copy the zip to instance
+                     sshagent(['aws-key-ssh']) {
+                          sh 'scp -i /home/hakninn/.aws/ori109.pem /var/lib/jenkins/workspace/crypto.tar.gz ec2-user@$EC2_IP:/home/ec2-user'
+                   // sh 'ssh -i /home/hakninn/.aws/ori109.pem ec2-user@18.193.101.103:22 "/s3://haknin-bucket/crypto.tar.gz -r -d /crypto/"'
 
                 }
             }

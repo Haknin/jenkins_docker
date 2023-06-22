@@ -1,3 +1,5 @@
+oriroriroriro
+
 pipeline {
     agent any
      triggers {

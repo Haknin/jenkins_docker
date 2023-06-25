@@ -5,6 +5,5 @@ pgrep flask
 if [[ "$?" == "0" ]]; then
   pkill flask
 fi
-tar xzvf crypto.tar.gz
-cd crypto-site
+cd /home/ec2-user/crypto-site
 flask run --host=0.0.0.0 &

@@ -4,7 +4,7 @@ pipeline {
         pollSCM('*/5 * * * *')
     }
     environment {
-        EC2_IP = "35.156.165.75"
+        EC2_IP = "3.127.148.242"
     }
     stages {
         stage('Cleanup') {

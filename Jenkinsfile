@@ -4,7 +4,7 @@ pipeline {
         pollSCM('*/5 * * * *')
     }
     environment {
-        EC2_IP = "3.127.148.242"
+        EC2_IP = "18.198.202.101"
     }
     stages {
         stage('Cleanup') {
@@ -34,9 +34,9 @@ pipeline {
                 script {
                     withCredentials([sshUserPrivateKey(credentialsId: 'ssh-ori109', keyFileVariable: 'KEY_FILE')]) {
                         sh "scp -i /var/lib/jenkins/workspace/ori109.pem -o StrictHostKeyChecking=no crypto.tar.gz ec2-user@$EC2_IP:/home/ec2-user"
-                        sh "ssh -i /var/lib/jenkins/workspace/ori109.pem -o StrictHostKeyChecking=no ec2-user@$EC2_IP pkill flask "
                         sh "ssh -i /var/lib/jenkins/workspace/ori109.pem -o StrictHostKeyChecking=no ec2-user@$EC2_IP 'tar xzvf crypto.tar.gz'"
-                        sh "ssh -i /var/lib/jenkins/workspace/ori109.pem -o StrictHostKeyChecking=no ec2-user@$EC2_IP 'cd crypto-site && flask run --host=0.0.0.0 &'"
+                        sh "ssh -i /var/lib/jenkins/workspace/ori109.pem -o StrictHostKeyChecking=no ec2-user@$EC2_IP bash -x crypto-site/deploy.sh &"
+
                     }
                 }
             }

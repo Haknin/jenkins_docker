@@ -2,7 +2,7 @@
 
 pgrep flask
 
-if [[ "$?" == "0" ]]; then
+if [[ "$?" == "0" ]]:
   pkill flask
   sleep 7
   cd /home/ec2-user/crypto-site

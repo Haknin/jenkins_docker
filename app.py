@@ -13,10 +13,11 @@ def home_page():
 def eth():
     session['visits'] = session.get('visits', 0) + 1  # Increment page visit count
 
-    eth_response = requests.get("https://api.coinstats.app/public/v1/coins/ethereum")
+    eth_response = requests.get("https://api.coinstats.app/public/v1/coins/ethereum")     # Make a GET request to the CoinDesk API
     if eth_response.status_code == 200:
         eth_price = eth_response.json()["coin"]["price"]
-
+        
+    # Pass the Bitcoin price data to the template
     return render_template("eth.html", eth_price=eth_price)
 
 @app.route("/btc")

@@ -1,17 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <style>
-         body {
-          background-image: url('https://miro.medium.com/v2/resize:fit:1400/1*KX7Tei6MD97b3GHpv7WU3Q.gif'), url('blob:https://giphy.com/fa522b50-66ec-4e9b-a6d7-35603f8c42ae');
-        background-size: cover, cover;
-        background-position: middle, center;
-        background-repeat: no-repeat, no-repeat;
+<style>
+    body {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
         overflow: hidden;
         margin: 0;
         padding: 0;
         color: white;
-        }
+    }
+</style>
+
+<script>
+    var backgroundImages = [
+        'https://miro.medium.com/v2/resize:fit:1400/1*KX7Tei6MD97b3GHpv7WU3Q.gif',
+        'https://example.com/static-image.jpg' // Replace with the actual URL of the static image
+    ];
+
+    var currentImageIndex = 0;
+
+    function changeBackgroundImage() {
+        document.body.style.backgroundImage = 'url("' + backgroundImages[currentImageIndex] + '")';
+        currentImageIndex = (currentImageIndex + 1) % backgroundImages.length;
+    }
+
+    // Call the function to change the background image initially
+    changeBackgroundImage();
+
+    // Set an interval to change the background image after the GIF finishes one loop
+    var gifDuration = 5000; // Adjust this value to match the duration of the GIF (in milliseconds)
+    setInterval(changeBackgroundImage, gifDuration);
+</script>
+
         
         code {
       display: inline-block;

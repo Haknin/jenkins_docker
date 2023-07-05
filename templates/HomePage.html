@@ -211,6 +211,12 @@
         function changeBackgroundImage() {
             document.body.style.backgroundImage = 'url("' + backgroundImages[currentImageIndex] + '")';
             currentImageIndex = (currentImageIndex + 1) % backgroundImages.length;
+
+            // Check if it's the last image
+            if (currentImageIndex === backgroundImages.length - 1) {
+                // Remove the changeBackgroundImage function to prevent further changes
+                window.removeEventListener('load', changeBackgroundImage);
+            }
         }
 
         // Call the function to change the background image initially

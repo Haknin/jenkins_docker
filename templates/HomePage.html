@@ -2,243 +2,219 @@
 <html>
 <head>
     <style>
-         body {
-          background-size: cover;
-          background-position: center;
-          background-repeat: no-repeat;
-          overflow: hidden;
-          margin: 0;
-          padding: 0;
-          color: white;
-        }
-        
-        code {
-          display: inline-block;
-          padding: 3px 6px;
-          margin-left: 3px;
-          margin-right: 3px;
-          border-radius: 5px;
-          font-size: 0.8rem;
-          background: #1a2279;
-          color: #dbf1f5;
+        body {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            color: white;
         }
 
         .links {
-          z-index: 2;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 20px;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
         }
 
         .links a {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          background: rgba(153, 20, 76, 0.55); /* Set the background color and transparency */
-          border-radius: 25px;
-          padding: 10px;
-          font-size: 1.2rem;
-          text-decoration: none;
-          color: #000000;
-          transition: 0.3s ease all;
-          overflow: hidden;
-          width: 500px; /* Adjust the width as desired */
-          position: relative; /* Add this line */
-          backdrop-filter: blur(1000px); /* Add backdrop filter for blur effect */
-          font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(153, 20, 76, 0.55);
+            border-radius: 25px;
+            padding: 10px;
+            font-size: 1.2rem;
+            text-decoration: none;
+            color: #000000;
+            transition: 0.3s ease all;
+            overflow: hidden;
+            width: 500px;
+            position: relative;
+            backdrop-filter: blur(1000px);
+            font-family: Arial, sans-serif;
         }
 
         .links a:before,
         .links a:after {
-          font-size: 60px;
-          display: block;
-          position: absolute;
+            font-size: 60px;
+            display: block;
+            position: absolute;
         }
 
         .links a:before {
-          content: "";
-          top: -120%;
-          right: -150px;
-          width: 250px;
-          height: 250px;
-          pointer-events: none;
-          transform: rotate(-25deg);
-          transition: 0.4s cubic-bezier(0.34, 0.31, 0, 1.81) transform;
+            content: "";
+            top: -120%;
+            right: -150px;
+            width: 250px;
+            height: 250px;
+            pointer-events: none;
+            transform: rotate(-25deg);
+            transition: 0.4s cubic-bezier(0.34, 0.31, 0, 1.81) transform;
         }
 
         .links a:after {
-          content: "";
-          top: 0;
-          bottom: 0;
-          display: flex;
-          align-items: center;
-          right: 30px;
-          transform: translateX(90px);
-          transition: 0.3s cubic-bezier(0.34, 0.31, 0, 1.81) transform;
+            content: "";
+            top: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            right: 30px;
+            transform: translateX(90px);
+            transition: 0.3s cubic-bezier(0.34, 0.31, 0, 1.81) transform;
         }
 
         .links a:hover {
-          background: rgb(70, 250, 40); /* Change to solid background color */
-          box-shadow: 5px 5px 0 rgb(0, 0, 0);
+            background: rgb(70, 250, 40);
+            box-shadow: 5px 5px 0 rgb(0, 0, 0);
         }
 
         .links a:hover:before {
-          transform: rotate(-25deg) translateX(60px);
+            transform: rotate(-25deg) translateX(60px);
         }
 
         .links a:hover:after {
-          transform: none;
+            transform: none;
         }
 
         .links a strong {
-          font-weight: bold;
-          display: block;
-          margin-bottom: 15px;
-        }
-
-        .links a strong {
-          font-weight: bold;
-          display: block;
-          margin-bottom: 5px;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 15px;
         }
 
         .links a span {
-          color: #000000;
-          font-size: 0.9rem;
+            color: #000000;
+            font-size: 0.9rem;
         }
 
         .container {
-          padding: 100px;
-          max-width: 800px;
-          margin: 0 auto;
-          color: white;
+            padding: 100px;
+            max-width: 800px;
+            margin: 0 auto;
+            color: white;
         }
 
         .content {
-          font-size: 0.8rem;
-          z-index: 2;
-          text-align: center;
-          font-family: Arial, sans-serif;
-        }  
+            font-size: 0.8rem;
+            z-index: 2;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
 
         .maintitle1 {
-          z-index: 2;
-          text-align: center;
-          font-size: 3rem;
-          font-family: Arial, sans-serif;
-          text-shadow: -1px 1px 2px #000,
-                  1px 2px 6px #000,
-                  1px -1px 0 #000,
-                  -1px -1px 0 #000;
+            z-index: 2;
+            text-align: center;
+            font-size: 3rem;
+            font-family: Arial, sans-serif;
+            text-shadow: -1px 1px 2px #000, 1px 2px 6px #000, 1px -1px 0 #000, -1px -1px 0 #000;
         }
 
         .transparent-square1 {
-          position: absolute;
-          top: 50%;
-          transform: translateY(-25%);
-          width: 700px;
-          height: 700px;
-          border-radius: 25px;
-          background-color: rgba(170, 0, 90, 0.609);
-          opacity: 1;
-          backdrop-filter: blur(10px);
-          z-index: -1;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-25%);
+            width: 700px;
+            height: 700px;
+            border-radius: 25px;
+            background-color: rgba(170, 0, 90, 0.609);
+            opacity: 1;
+            backdrop-filter: blur(10px);
+            z-index: -1;
         }
 
         .card {
-          top: -500px;
-          width: 800px;
-          height: 700px;
-          opacity: 0.8;
-          backdrop-filter: blur(10px);
-          background: #07182E;
-          position: relative;
-          display: flex;
-          place-content: center;
-          place-items: center;
-          overflow: hidden;
-          border-radius: 20px;
-          z-index: -1;
+            top: -500px;
+            width: 800px;
+            height: 700px;
+            opacity: 0.8;
+            backdrop-filter: blur(10px);
+            background: #07182E;
+            position: relative;
+            display: flex;
+            place-content: center;
+            place-items: center;
+            overflow: hidden;
+            border-radius: 20px;
+            z-index: -1;
         }
 
         .card h2 {
-          z-index: 1;
-          color: white;
-          font-size: 2em;
+            z-index: 1;
+            color: white;
+            font-size: 2em;
         }
 
         .card::before {
-          content: '';
-          position: absolute;
-          width: 100px;
-          background-image: linear-gradient(180deg, rgb(240, 20, 70), rgb(98, 48, 67));
-          height: 130%;
-          animation: rotBGimg 3s linear infinite;
-          transition: all 0.2s linear;
+            content: '';
+            position: absolute;
+            width: 100px;
+            background-image: linear-gradient(180deg, rgb(240, 20, 70), rgb(98, 48, 67));
+            height: 130%;
+            animation: rotBGimg 3s linear infinite;
+            transition: all 0.2s linear;
         }
 
         @keyframes rotBGimg {
-          from {
-            transform: rotate(0deg);
-          }
+            from {
+                transform: rotate(0deg);
+            }
 
-          to {
-            transform: rotate(360deg);
-          }
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         .card::after {
-          content: '';
-          position: absolute;
-          background: #07182E;
-          ;
-          inset: 5px;
-          border-radius: 15px;
-        }  
+            content: '';
+            position: absolute;
+            background: #07182E;
+            inset: 5px;
+            border-radius: 15px;
+        }
     </style>
-
 </head>
 
 <body>
-  <div class="container"></div>
-  <div class="maintitle1">
-    <h1>Crypto Prices</h1>
-  </div>
-  <div class="content">
-      <h1>Choose A Crypto Currency</h1>
-  </div>
+    <div class="container"></div>
+    <div class="maintitle1">
+        <h1>Crypto Prices</h1>
+    </div>
+    <div class="content">
+        <h1>Choose A Cryptocurrency</h1>
+    </div>
 
-  <div class="links">
-    <a href="/eth" rel="noopener noreferrer">
-      <strong>Ethereum</strong>
-    </a>
+    <div class="links">
+        <a href="/eth" rel="noopener noreferrer">
+            <strong>Ethereum</strong>
+        </a>
 
-    <a href="/btc" rel="noopener noreferrer">
-      <strong>Bitcoin</strong>
-    </a>
+        <a href="/btc" rel="noopener noreferrer">
+            <strong>Bitcoin</strong>
+        </a>
 
-    <div class="card"></div>
-  </div>
+        <div class="card"></div>
+    </div>
 
-  <script>
-    var backgroundImages = [
-        'https://miro.medium.com/v2/resize:fit:1400/1*KX7Tei6MD97b3GHpv7WU3Q.gif',
-        'https://i.ibb.co/TL1Xmg5/static-image.png'
-        // Replace with the actual URL of the static image
-    ];
+    <script>
+        var backgroundImages = [
+            'https://miro.medium.com/v2/resize:fit:1400/1*KX7Tei6MD97b3GHpv7WU3Q.gif',
+            'https://i.ibb.co/TL1Xmg5/static-image.png'
+        ];
 
-    var currentImageIndex = 0;
+        var currentImageIndex = 0;
 
-    function changeBackgroundImage() {
-        document.body.style.backgroundImage = 'url("' + backgroundImages[currentImageIndex] + '")';
-        currentImageIndex = (currentImageIndex + 1) % backgroundImages.length;
-    }
+        function changeBackgroundImage() {
+            document.body.style.backgroundImage = 'url("' + backgroundImages[currentImageIndex] + '")';
+            currentImageIndex = (currentImageIndex + 1) % backgroundImages.length;
+        }
 
-    // Call the function to change the background image initially
-    changeBackgroundImage();
-  </script>
-  
+        // Call the function to change the background image initially
+        changeBackgroundImage();
+    </script>
 </body>
 </html>

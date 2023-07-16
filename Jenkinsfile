@@ -3,7 +3,7 @@ pipeline {
     environment {
         testInstance = 'i-0ea8ce1eda456590b' // Replace with your test instance ID
         prodInstance = 'i-0bd12600caeb45b15' // Replace with your prod instance ID
-        sshKeyPath = '/var/lib/jenkins/workspace/ori109.pem'
+        sshKeyPath = '"/home/hakninn/.aws/ori109.pem"'
         dockerImageName = 'haknin/crypto_docker:latest'
         flaskAppPath = '/flask'
         testInstanceIP = '' // Environment variable for test instance IP

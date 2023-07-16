@@ -102,7 +102,7 @@ pipeline {
             steps {
                 script {
                     def instanceIds = [testInstance]
-                    withAWS(region: 'eu-north-1', credentials: 'aws-credentials') {
+                    withAWS(region: 'eu-central-1', credentials: 'ssh-ori109') {
                         instanceIds.each { instanceId ->
                             sh "aws ec2 stop-instances --instance-ids $instanceId"
                         }
